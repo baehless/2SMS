@@ -10,6 +10,7 @@ DEFAULT_SOCKET=/run/shm/sciond/default.sock
 SERVICE_FILE_NAME=2SMSscraper.service
 SERVICE_FILE_LOCATION=/etc/systemd/system
 MANAGER_IP='192.33.93.196'
+monitoring_download_page="monitoring.scionlab.org/downloads/public/scraper"
 IP=$(curl -s ipinfo.io/ip)
 [ -f $SC/gen/ia ] && IA=$(cat $SC/gen/ia | sed 's/_/:/g') || { echo "Missing $SC/gen/ia file"; exit 1; }
 
@@ -18,20 +19,23 @@ echo "Creating installation directory at $INSTALLATION_PATH"
 mkdir -p $INSTALLATION_PATH
 cd $INSTALLATION_PATH
 
-# TODO: download required files from gist
-echo "Downloading deployment archive"
-git clone https://gist.github.com/baehless/TODO >/dev/null 2>&1
+# TODO: improve download process (check return status, missing files, create a separate function)
 
-echo "Extracting deployment archive"
-rm -f scraper-deployment
-tar xf TODO/scraper-deployment.tgz
-# TODO: check where extracted and in case move to .
-rm -rf TODO
+echo "Downloading scraper binary"
+rm -f scraper
+wget "https://$monitoring_download_page/scraper.tar.gz" >/dev/null 2>&1
+tar -xzvf scraper.tar.gz
+rm -f scraper.tar.gz
+chmod +x scraper
 
-# TODO: check that all files are present
+echo "Downloading Prometheus"
+# TODO
 
-# TODO: make scraper executable
 # TODO: make prometheus/prometheus executable
+
+echo "Downloading configuration files"
+# TODO
+
 
 # Check system
 echo "Checking SCION installation"
