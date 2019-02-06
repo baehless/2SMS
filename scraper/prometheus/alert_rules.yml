@@ -1,0 +1,7 @@
+# TODO: basic alerts
+groups:
+- name: DeadManSwitch
+  rules:
+  - alert: MonitoringHeartBeat
+    expr: up{job="Prometheus"} == 1
+    for: 1m
