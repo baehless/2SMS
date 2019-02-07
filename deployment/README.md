@@ -1,3 +1,18 @@
+# Deployment of 2SMS from scratch
+TODO: assumption thatmanager and scraper are installed on the same machine running behind a NAT
+
+# Requirements
+TODO
+
+# Procedure
+TODO
+
+# Hints and Tricks
+TODO
+
+# FAQ
+TODO
+
 # TODO: move to readme
 # 2SMS job format:
 #- job_name: <IA> <IP <type> (e.g. 17-ffaa:1:c5 127.0.0.1 bs)
