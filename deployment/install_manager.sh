@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -xe # fail if unexpected error
+set -e # fail if unexpected error
 
 echo "Started installation of 2SMS Manager application"
 

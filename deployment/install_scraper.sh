@@ -9,12 +9,15 @@ INSTALLATION_PATH="$HOME/2SMS/deployment/scraper"
 DEFAULT_SOCKET=/run/shm/sciond/default.sock
 SERVICE_FILE_NAME=2SMSscraper.service
 SERVICE_FILE_LOCATION=/etc/systemd/system
-MANAGER_IP='192.33.93.196'
 monitoring_download_page="monitoring.scionlab.org/downloads/public/scraper"
+### THE FOLLOWING PARAMETERS MAY NEED TO BE ADAPTED TO YOUR SETTING ###
+### ------------------------------------------------------ ###
+MANAGER_IP='192.33.93.196'
 prometheus_retention="10d"
 path_prefix="\/prometheus" # Escaped for sed
 external_url="https:\/\/monitoring.scionlab.org$path_prefix" # Escaped for sed
 prometheus_address="10.10.10.5:9090"
+### ------------------------------------------------------ ###
 IP=$MANAGER_IP
 [ -f $SC/gen/ia ] && IA=$(cat $SC/gen/ia | sed 's/_/:/g') || { echo "Missing $SC/gen/ia file"; exit 1; }
 
