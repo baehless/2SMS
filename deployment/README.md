@@ -59,6 +59,9 @@ TODO
 1. Move the service file to `/etc/systemd/system/`
 1. Enable and start the service
 
+## Procedure to install Grafana
+TODO
+
 ## Procedure to install InfluxDB
 From `https://portal.influxdata.com/downloads/` (Latest 1.x version, Ubuntu & Debian):
 1. `wget https://dl.influxdata.com/influxdb/releases/influxdb_1.7.4_amd64.deb`
