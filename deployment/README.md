@@ -43,29 +43,35 @@ TODO
 ## Procedure to install alertmanager
 1. Download the binary and the configuration file from `https://monitoring.scionlab.org/downloads/public/alertmanager/`
 1. Add the secret tokens to the configuration file
-1. (Modify the configuration file)
+1. Optional: Modify the configuration file. E.g. Add/remove receivers, change routes, use a new Slack channel, ...
 1. Download the service file from `https://monitoring.scionlab.org/downloads/public/alertmanager/`
-1. (Adapt it to the setting)
+1. Optional: Adapt it to the setting. E.g. change external URL, add parameter to bind to a different port
 1. Move the service file to `/etc/systemd/system/`
 1. Enable and start the service
 
 ## Procedure to install blackbox exporter
-TODO
+Deprecated: TODO, reference issue
 
 ## Procedure to install node exporter
+1. Skip if there is already a node exporter installed and running (TODO)
 1. Download the node_exporter binary from `https://monitoring.scionlab.org/downloads/public/node_exporter/`
 1. Download the service file from `https://monitoring.scionlab.org/downloads/public/node_exporter/`
-1. (Adapt it to the setting)
+1. Optional: Adapt it to the setting. E.g. change the file location.
 1. Move the service file to `/etc/systemd/system/`
 1. Enable and start the service
 
 ## Procedure to install Grafana
-TODO
+From `https://grafana.com/grafana/download`
+1. wget https://dl.grafana.com/oss/release/grafana_6.0.0_amd64.deb
+1. sudo dpkg -i grafana_6.0.0_amd64.deb
+1. Temporary: import current settings in a quick&dirty way by copying grafana sqlite database (`/var/lib/grafana/grafana.db`)
+1. Enable and start grafana service (`grafana-server.service`)
 
 ## Procedure to install InfluxDB
 From `https://portal.influxdata.com/downloads/` (Latest 1.x version, Ubuntu & Debian):
 1. `wget https://dl.influxdata.com/influxdb/releases/influxdb_1.7.4_amd64.deb`
 1. `sudo dpkg -i influxdb_1.7.4_amd64.deb`
+1. Enable and start `influxdb.service`
 
 # FAQ
 ## How do I add a new alert?
@@ -111,3 +117,6 @@ There are multiple possible reasons for this behaviour:
 * TODO
 
 Detailed information about the Endpoint process can be found in the syslog file (`/var/log/syslog`) or using journalctl (`journalctl -ru 2SMSendpoint.service`)
+
+## There are false positives, how can I found out why?
+TODO
